@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Javascript</title>
+    <style type="text/css">
+        
+        #box{
+            width: 100px;
+            height: 200px;
+            background-color: red;
+        }
+
+
+      
+        </style>
+
+</head>
+
+<body>
+    <h4>How fast can you click on the button?</h4>
+  
+    <p>Try to click on the following button.</p>
+   
+
+    <div id='box'> </div>
+
+    <p class="bold">
+        "Your time:"
+        <span id="timeTaken"></span>
+    </p>
+    
+    <script>
+    
+    function moveElmRand(elm){
+     elm.style.position ='absolute';
+     elm.style.top = Math.floor(Math.random()*90+5)+'%';
+     elm.style.left = Math.floor(Math.random()*90+5)+'%';
+     elm.style.width = Math.floor(Math.random()*90+5)+'%';
+     elm.style.height = Math.floor(Math.random()*90+5)+'%';
+    }
+    
+        const setBg = () => {
+        const randomColor = Math.floor(Math.random()*16777215).toString(16);
+        document.getElementById("box").style.backgroundColor = "#" + randomColor;
+        
+        }
+
+      document.getElementById('box').onclick=function(){
+        let end= new Date().getTime();
+        let timeTaken =(end-start) /1000;
+        document.getElementById("timeTaken").innerHTML=timeTaken+"s";
+        console.log(timeTaken);
+      }
+
+        let start= new Date().getTime();
+   
+    var btn_test = document.querySelector('#box');
+    
+
+    btn_test.addEventListener('click', function(e){ moveElmRand(e.target);});
+    
+    box.addEventListener("click", setBg);
+        setBg();
+   
+
+    </script>
+    
+
+  
+
+</body>
+</html>
